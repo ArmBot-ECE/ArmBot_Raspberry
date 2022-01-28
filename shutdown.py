@@ -5,7 +5,7 @@
 #  ArmBot Raspberry Configuration
 #
 #  Created by Evann De Castro on 25/01/2022.
-#  Copyright Â© 2022 ArmBot. All rights reserved.
+#  Copyright © 2022 ArmBot. All rights reserved.
 #
 
 
@@ -35,7 +35,7 @@ GPIO.setup(21, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 def Shutdown(channel):
 
-    print("Arrêt du Pi...")
+    print("Stopping the Raspberry Pi...")
 
     time.sleep(1)
 
