@@ -20,15 +20,15 @@ expect -re $prompt
 send "agent on\r"
 send "scan on\r"
 #send_user "\nSleeping\r"
-send_user "\nRecherche du téléphone\r"
+send_user "\nSearching for a device.\r"
 sleep 10
-send_user "\nJumelage\r"
+send_user "\nPairing\r"
 send "scan off\r"
 expect "Controller"
 send  "trust $address\r"
 sleep 2
 send  "pair $address\r"
-send_user "\nValider le jumelage sur le téléphone\r"
+send_user "\nPlease accept to pari on your device.\r"
 sleep 20
 send "yes\r"
 sleep 3
