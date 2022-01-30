@@ -24,3 +24,23 @@ Finally, dont miss to visit our [YouTube](https://www.youtube.com/channel/UCcuag
 
 
 ## Raspberry Configuration Steps
+
+Dans un premier temps créer un dossier dans /etc :
+
+					$ sudo mkdir -p /etc/repo
+	
+Aller dans le dossier suivant :
+
+					$ sudo cp -r /boot/ArmBot_C-main /etc/repo/
+
+Se rendre dans le dossier :
+
+					$ cd /etc/repo/ArmBot_C-main/raspberry_setup/
+          
+Exécuter la commande suivante : 
+ 					
+					$ sudo ./start.sh ADRESSE_MAC_TELEPHONE
+
+Durant le lancement du script une demande de changement de mot de passe pour l’utilisateur pi est demandé, il faut que le mot de passe possède au moins 8 caractères minimum, chiffres & lettres, minuscules & majuscules, caractères spéciaux (attention il faudra le rentrer 2 fois)  
+
+Si la connexion à réussi alors le téléphone est connecté à la raspberry et la configuration est terminée et la raspberry va redémarrer.
