@@ -95,15 +95,15 @@ Dans un premier temps créer un dossier dans /etc :
 
 					$ sudo mkdir -p /etc/repo
 	
-Copier le dossier "ArmBot_C-main" dans le dossier suivant :
+Copy the folder "ArmBot_C-main" into the "repo" folder :
 
 					$ sudo cp -r /boot/ArmBot_C-main /etc/repo/
 
-Se rendre dans le dossier :
+Go into the folder :
 
 					$ cd /etc/repo/ArmBot_C-main/raspberry_setup/
           
-Exécuter la commande suivante : 
+Run the following command : 
  					
 					$ sudo ./start.sh ADRESSE_MAC_TELEPHONE
 
