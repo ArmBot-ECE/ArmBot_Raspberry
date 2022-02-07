@@ -25,21 +25,22 @@ Finally, dont miss to visit our [YouTube](https://www.youtube.com/channel/UCcuag
 
 ## Raspberry Configuration Steps
 
-Insérer la carte SD dans son PC et la formatter avec un logiciel dédié 
-ex : SD Card Formatter (accessible sur windows et mac) 
+Insert the SD card in your PC and format it using a dedicated software (f.e. "SD Card Formatter" on macOS and Windows).
 
-Télécharger Raspberry Pi OS à l’adresse suivante : 
+Download Raspberry Pi OS on the following link :
 https://www.raspberrypi.org/downloads/raspberry-pi-os/
 
-Récupérer sur le dépôt https://github.com/ArmBot-ECE/ArmBot_C.git nommé “ArmBot_C-main”
-Vérifier que tous les dossiers sont complets 
+Download the folder named "ArmBot_C-main" on our Github repository :
+https://github.com/ArmBot-ECE/ArmBot_C.git 
 
-Ouvrir le dossier téléchargé et rentrer dans le dossier “raspberry_setup”. Puis prendre les 2 fichiers et les placer sur votre bureau :
+Open the downloaded folder and using a terminal run the command "raspberry_setup". Then drag and drop the following 2 files from the folder to your desktop :
 
 					wpa_supplicant.conf
 					SSH
 
-Une fois les deux fichiers placés sur le bureau, éditer le fichier wpa_supplicant.conf ( Remplacer "MaBoxInternet" par le nom de la box où sera connectée la Rpi, et remplacer "ClefSecurite" par le mot de passe de la box. Pensez à bien garder les doubles quottes.)
+Once both files are on your Desktop, edit the file named wpa_supplicant.conf.
+
+In there, replace the variable "MaBoxInternet" with the name of the box that the Raspberry Pi will be connecting to. Then replace "ClefSecurite" with your box's password. Make sure you keep the quotes while editing.
 
 					country=fr
 					update_config=1
@@ -50,63 +51,61 @@ Une fois les deux fichiers placés sur le bureau, éditer le fichier wpa_supplic
 					psk="ClefSecurite"
 					}
 
-Extraire l’image de l’OS téléchargé et écrire cette dernière sur la carte SD 
-ex : Win32 Disk Imager (Windows) ou BalenaEtcher (Mac)
+Extract the OS image and move it to the SD card using Win32 Disk Imager (on Windows) or BalenaEtcher (on Mac).
 
-Une fois l’opération terminé ouvrir la carte SD sur votre ordinateur et placer   le reste du dossier téléchargé “ArmBot_C-main” sur la carte SD
+Once the operation is done open your SD card and place in it the rest of the "ArmBot_C-main" folder.
 
-Éjecter la carte SD du PC, l’insérer dans la Rpi, puis alimenter cette dernière (il faut d'abord brancher le câble HDMI avant d’alimenter la raspberry). L’installation va se lancer seule.
+Eject the SD card, take it and insert it into the Raspberry Pi. Then plug your HDMI and then the alimentation of the Raspberry and the OS installation will take care of itself. Make sure you plugged the HDMI first and then the power to make it work perfectly.
 
-Se connecter à la raspberry (attention le clavier est en qwerty)
-						user : pi	password : raspberry
+Once the installation is complete, connect to the Raspberry using the default user (pay attention to the fact that the default keyboard will be in QWERTY).
 
-Une fois connecté à la machine tapper la commmande suivante : 
+					login :  pi
+
+					password : raspberry
+
+Once connected to the machine, open a terminal and run the following command :
 				
 					$ sudo raspi-config 
 
-Appuyer entrer sur le choix : 
-					Localisation Options 
-					
-Sélectionner l’option : 
-					Keyboard
+Press "Enter" on "Localisation Options". 
 
-Choisir l’option suivante : 
-					Generic 105-Key (Intl) 
-					
-Choisir ensuite l’option : 
-					other 
+Select the "Keyboard" option.
 
-Sélectionner le pays “French” puis choisir à nouveau “french” 
+Choose then the "other" option and select "French" then once more select "French".
 
-Sélectionner le clavier : 
-					The default for the keyboard layout 
+Choose the following option "Generic 105-Key (Intl)" and clic on "OK".
 
-Choisir ensuite :
-					No compose key
+Select the option "The default for the keyboard layout" then clic on "OK".
 
-Appuyer entrer sur le choix : 
-					Localisation Options
-					
-Choisir “WLAN Country” et choisir “FR France” puis faire “OK”
+Choose then "No compose key" and clic on "OK".
 
-Appuyer sur “Finish”, une fois que la barre noir apparait en-bas faire “CTRL + L”
 
-Dans un premier temps créer un dossier dans /etc :
+If you're still in the same menu as "French Keyboard Configuration", there is no need to execute the following command, if not, do it :
 
-					$ sudo mkdir -p /etc/repo
-	
-Copy the folder "ArmBot_C-main" into the "repo" folder :
+                                                        $ sudo raspi-config 
 
-					$ sudo cp -r /boot/ArmBot_C-main /etc/repo/
+Press "Enter" on "Localisation Options".
 
-Go into the folder :
+Chopse "WLAN Country" and choose "FR France" then clic on "OK".
 
-					$ cd /etc/repo/ArmBot_C-main/raspberry_setup/
-          
-Run the following command : 
- 					
-					$ sudo ./start.sh ADRESSE_MAC_TELEPHONE
+Clic on "Finish". Once the black bar displays at the bottom do "CTRL + L".
 
-Durant le lancement du script une demande de changement de mot de passe pour l’utilisateur pi est demandé, il faut que le mot de passe possède au moins 8 caractères minimum, chiffres & lettres, minuscules & majuscules, caractères spéciaux (attention il faudra le rentrer 2 fois)  
+Firstly create a folder in /etc using the following command :
 
-Si la connexion à réussi alors le téléphone est connecté à la raspberry et la configuration est terminée et la raspberry va redémarrer.
+                    					$ sudo mkdir -p /etc/repo
+
+Then copy the downloaded folder in the created folder :
+
+                    					$ sudo cp -r /boot/ArmBot_C-main /etc/repo/
+
+ Move to the following folder :
+
+                    					$ cd /etc/repo/ArmBot_C-main/raspberry_setup/
+
+Then run the following command :
+
+                    					$ sudo ./start.sh MY_PHONE_MAC_ADDRESS
+
+While the script runs, you will be asked to change the password for the user "pi". Make sure the password you give is at least 8 characters long, has letters and numbers, upper and lower case, special characters. Keep in mind you'll have to write it twice.
+
+If the connection succeeds then the phone is connected to the Raspberry and the configuration is done. the Raspberry will then reboot.
