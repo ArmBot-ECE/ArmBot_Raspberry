@@ -82,7 +82,7 @@ Choose then "No compose key" and clic on "OK".
 
 If you're still in the same menu as "French Keyboard Configuration", there is no need to execute the following command, if not, do it :
 
-                                                        $ sudo raspi-config 
+					$ sudo raspi-config 
 
 Press "Enter" on "Localisation Options".
 
@@ -92,19 +92,19 @@ Clic on "Finish". Once the black bar displays at the bottom do "CTRL + L".
 
 Firstly create a folder in /etc using the following command :
 
-                    					$ sudo mkdir -p /etc/repo
+					$ sudo mkdir -p /etc/repo
 
 Then copy the downloaded folder in the created folder :
 
-                    					$ sudo cp -r /boot/ArmBot_C-main /etc/repo/
+					$ sudo cp -r /boot/ArmBot_C-main /etc/repo/
 
  Move to the following folder :
 
-                    					$ cd /etc/repo/ArmBot_C-main/raspberry_setup/
+					$ cd /etc/repo/ArmBot_C-main/raspberry_setup/
 
 Then run the following command :
 
-                    					$ sudo ./start.sh MY_PHONE_MAC_ADDRESS
+					$ sudo ./start.sh MY_PHONE_MAC_ADDRESS
 
 While the script runs, you will be asked to change the password for the user "pi". Make sure the password you give is at least 8 characters long, has letters and numbers, upper and lower case, special characters. Keep in mind you'll have to write it twice.
 
